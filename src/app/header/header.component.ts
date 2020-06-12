@@ -10,7 +10,7 @@ import { ProductInterface } from '../productInterface';
 export class HeaderComponent implements OnInit {
 
   constructor( private addcartService:ChangeService) { }
-cart:ProductInterface<Array<object>>=[];
+cart:ProductInterface[]=[];
   ngOnInit() {
     this.addcartService.currentCart.subscribe((result: any) => this.cart = result);
   }

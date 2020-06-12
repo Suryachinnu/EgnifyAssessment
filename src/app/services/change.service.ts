@@ -10,7 +10,7 @@ export class ChangeService{
         sizes:[],
         orderBy:'',
     };
-    cartProducts:ProductInterface<Array<object>>=[];
+    cartProducts:ProductInterface[]=[];
     constructor(){}
     private filter = new BehaviorSubject<Object>(this.filterObj);
     private cart = new BehaviorSubject<Array<object>>(this.cartProducts);

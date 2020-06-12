@@ -18,7 +18,8 @@ export class ProductlistComponent implements OnInit {
   };
   
   @Output() onProductSelected: EventEmitter<ProductInterface>
-  private currentProduct: ProductInterface
+  private currentProduct: ProductInterface;
+  newProducts:Array<object> = [];
   
   ngOnInit() {
     this.FilterService.currentFilter.subscribe((title: filterInterface) => {
@@ -51,27 +52,50 @@ export class ProductlistComponent implements OnInit {
   }
 
 filterProducts(){
-  if(this.filter.sizes.length>0){
-    let newProducts:Array<object> = [];
-   this.copyProducts.filter( (el) => {
-    this.filter.sizes.forEach((element: any) => {
-    if(el.availableSizes.includes(element)){
-      newProducts.push(el)
-    }
-    });      
-  }); 
-  }
-  if(this.filter.orderBy.length>0){
+  
+  if(this.filter.sizes.length>0 && this.filter.orderBy.length>0){
     
+  this.filterwithsize();
+  this.filterOrderby();
+  
+  }
+  else if(this.filter.orderBy.length>0 && this.filter.sizes.length == 0){
+    this.filterOrderby();
+  }
+  else if(this.filter.sizes.length>0 && this.filter.orderBy.length == 0){
+    this.filterwithsize();
   }
  
- this.products = newProducts;
-  console.log("newproducts",newProducts)
+ this.products = this.newProducts;
+  console.log("newproducts",this.newProducts)
+}
+filterwithsize(){  
+  console.log("Products",this.newProducts);
+  this.copyProducts.filter( (el) => {
+    this.filter.sizes.forEach((element: any) => {
+      if(el.availableSizes.includes(element)){
+        this.newProducts.push(el)
+      }
+    });      
+  }); 
+}
+filterOrderby(){
+if(this.filter.orderBy == 'asc'){
+  this.products.sort(function(a , b) {
+    return a.price - b.price;
+});
+}else{
+   this.products.sort(function(a , b) {
+    return a.price - b.price;
+});
+this.products.reverse()
+}
+ 
 }
 
 }
 
 export interface filterInterface{
 sizes:string[];
-orderBy:'';
+orderBy:string;
 }

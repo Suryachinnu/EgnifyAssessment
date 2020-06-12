@@ -2,7 +2,7 @@ export interface ProductInterface {
     id: number;
     title: string;
     description: string;
-    availableSizes:object;
+    availableSizes:string[];
     style:string;
     price: number;
     installments:number;
