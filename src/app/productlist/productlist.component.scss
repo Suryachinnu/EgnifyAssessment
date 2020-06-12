@@ -1,0 +1,21 @@
+.filter-badge{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    background: #f2f5f8;
+    text-align-last: center;
+    transition: 0.3s ease-in-out;
+    display: inline-block;
+    cursor: pointer;    
+    &:hover{
+        background-color: #eee;
+    }
+    &.active{
+        background-color: #444;
+        color:#fff;
+    }
+}

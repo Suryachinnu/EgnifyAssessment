@@ -1,0 +1,15 @@
+<div class="content">
+  <label class="label badge badge-dark p-1 mr-auto rounded-0" *ngIf="product.isFreeShipping">Free Shipping</label>
+  
+  <img class="w-100 m-auto" [src]="'../../assets'+product.src_1"/>
+  <div class="header">{{ product.title }}</div>
+  <div class="divider"></div>
+  <h2><small>{{product.currencyFormat}}</small>{{product.price.toString().split('.')[0]}}<small>{{product.price.toString().split('.')[1]?"."+product.price.toString().split('.')[1]:'.00'}}</small></h2>
+  <label></label>
+  <!-- <ul>
+    <li *ngFor="let size of product.availableSizes">
+      {{size}}
+    </li>
+  </ul> -->
+  <button class="btn-block btn-dark btn rounded-0" (click)="addProduct(product)">Add to cart</button>
+</div>

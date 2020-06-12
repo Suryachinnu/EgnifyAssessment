@@ -1,0 +1,43 @@
+.content{
+    // padding:1.5rem;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    .label{
+        position: absolute;
+        top:0;
+        right: 0;
+        font-size: 12px;
+    }
+    img{
+        padding-top: 1.5rem;
+    }
+    .header{
+        font-size:16px;
+        font-weight: 600;
+        margin:15px 0;
+        height:45px;
+        display: inline-block;        
+    }
+    .divider{
+        width: 20px;
+        height: 2px;
+        text-align: center;
+        background-color: rgb(233, 233, 30);        
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: block;
+    }
+    .btn{
+        height:45px;
+        &:hover{
+            background-color: rgb(233, 233, 30);
+            border-color: rgb(233, 233, 30);
+        }
+    }
+    h2{
+        small{
+            font-size: 15px;
+        }
+    }
+}
